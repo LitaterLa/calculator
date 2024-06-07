@@ -75,10 +75,13 @@ class RomanNumerals {
         romanMap.put('I', 1);
         romanMap.put('V', 5);
         romanMap.put('X', 10);
+        romanMap.put('L', 50);
+        romanMap.put('C', 100);
     }
 
     public boolean isRoman(String s) {
-        return s.matches("^[IVX]+$"); // регулярное выражение проверяет по паттерну является ли текст римскими цифрами
+        return s.matches("^[IVXLCDM]+$"); // регулярное выражение проверяет по паттерну является ли текст римскими
+                                          // цифрами
     }
 
     public int romanToArabic(String roman) { // метод преобразования римских цифр вublic int romanToArabic(String roman)
@@ -102,8 +105,8 @@ class RomanNumerals {
 
     public String arabicToRoman(int number) { // метод преобразования араб в римские
         StringBuilder result = new StringBuilder();
-        List<Integer> values = Arrays.asList(10, 9, 5, 4, 1); // список арабских
-        List<String> symbols = Arrays.asList("X", "IX", "V", "IV", "I"); // список римских
+        List<Integer> values = Arrays.asList(100, 90, 50, 40, 10, 9, 5, 4, 1); // список арабских
+        List<String> symbols = Arrays.asList("C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"); // список римских
         for (int i = 0; i < values.size(); i++) { // сайз метод кол-ва элементов в упоряд коллекции
             while (number >= values.get(i)) { // работает пока number >= value (например беру 14 - 10(первый элемент
                                               // списка) = 4 значит первый символ результата Х, крутимся дальше и 4 и 9
@@ -115,3 +118,4 @@ class RomanNumerals {
         return result.toString(); // возврат к римским
     }
 }
+
