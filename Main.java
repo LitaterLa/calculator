@@ -80,7 +80,7 @@ class RomanNumerals {
     }
 
     public boolean isRoman(String s) {
-        return s.matches("^[IVXLCDM]+$"); // регулярное выражение проверяет по паттерну является ли текст римскими
+        return s.matches("^(M{0,4}(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|V?I{0,3}))$"); // регулярное выражение проверяет по паттерну является ли текст римскими
                                           // цифрами
     }
 
